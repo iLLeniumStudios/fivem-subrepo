@@ -35,7 +35,7 @@ git clone https://github.com/iLLeniumStudios/fivem-subtree
 ### Creating a new repo
 
 - Create a new private / public Github Repository
-- Make sure to check `Add Readme` to that a default `main` branch gets created
+- Make sure to check `Add Readme` so that a default `main` branch gets created
 - Copy the URL of the repository (Example: https://github.com/iLLeniumStudios/my-roleplay-server)
 - Paste the URL in `env.sh` file under `mainRepoURL` export string
 - Choose an **absolute** path for where you want the repository to be cloned
@@ -57,7 +57,7 @@ git clone https://github.com/iLLeniumStudios/fivem-subtree
 
 ## Pull from remote repositories
 
-Now that you've set everything up, you can now pull the latest changes from all the qb-core repositories whenever you need. To do the follow these instructions:
+Now that you've set everything up, you can now pull the latest changes from all the qb-core repositories whenever you need. To do so, follow these instructions:
 
 - Change current directory to the `fivem-subtree` folder
 - Run the following command:

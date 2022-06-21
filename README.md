@@ -35,6 +35,7 @@ git clone https://github.com/iLLeniumStudios/fivem-subtree
 ### Creating a new repo
 
 - Create a new private / public Github Repository
+- Make sure to check `Add Readme` to that a default `main` branch gets created
 - Copy the URL of the repository (Example: https://github.com/iLLeniumStudios/my-roleplay-server)
 - Paste the URL in `env.sh` file under `mainRepoURL` export string
 - Choose an **absolute** path for where you want the repository to be cloned

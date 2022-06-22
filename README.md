@@ -79,6 +79,7 @@ git config --global user.email "<email>"
 	- repo
 	- admin:org
 	- delete_repo
+  - workflows
 - Click `Generate token`
 - Copy the token
 - Now open up the terminal and run the following command after replacing `<token>` with your token

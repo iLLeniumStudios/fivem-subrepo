@@ -98,8 +98,6 @@ function all_repos_in_recipe() {
                         cd ../$REPO_NAME
                         git remote add -f $repo https://github.com/$ORG_NAME/$folder
                         git subrepo clone -b $ref $repo $dest
-                        #git subtree add --prefix $dest --squash $repo $ref -m "Add $repo as subtree"
-                        #git merge --squash --allow-unrelated-histories main
                         git push origin main
                     fi
                 elif [ "$script_action" = "pull" ]; then
@@ -133,23 +131,6 @@ function all_repos_in_recipe() {
                     cd ../$REPO_NAME
                     git subrepo pull $dest
                     git push origin main
-                    #git checkout -b update-subtree main
-                    #git fetch $repo $ref
-                    #git branch "$repo-$ref" "$repo/$ref"
-                    #git merge --squash -s recursive -Xsubtree=$dest -Xtheirs --allow-unrelated-histories --no-commit "$repo-$ref"
-                    #git commit -m "Update subtree $repo"
-                    #git checkout main
-                    #git merge update-subtree
-                    #git branch -d update-subtree
-                    #git branch -d "$repo-$ref"
-                    #git push origin main
-                elif [ "$script_action" = "push" ] && [ "$script_remote" = "$dest" ]; then
-                    git subrepo push -b $ref $dest
-                    cd ..
-                    cd $folder
-                    git fetch upstream
-                    git pull origin $ref --no-edit
-                    break
                 fi
             fi
         elif [ "$action" = "move_path" ]; then

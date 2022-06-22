@@ -15,12 +15,13 @@ A bash script that builds up a subrepo based private Git repo and private forks 
 - git
 - gh
 - subrepo
+- unzip
 
 For Ubuntu, you can install them using the following commands:
 
 ```bash
 # Install jq and git
-sudo apt install -y git jq
+sudo apt install -y git jq unzip
 # Install yq
 pip3 install yq
 # Add python binaries to PATH
@@ -81,10 +82,14 @@ git config --global user.email "<email>"
 - Click `Generate token`
 - Copy the token
 - Now open up the terminal and run the following command after replacing `<token>` with your token
+
 ```bash
 echo "<token>" | gh auth login --with-token
 gh auth status
+export MY_GIT_TOKEN=<token>
+git config --global url."https://api:$MY_GIT_TOKEN@github.com/".insteadOf "https://github.com/"
 ```
+
 - If you see all ticks on the terminal output, you are good to go
 
 ## Create a new FiveM Server Resources Repo

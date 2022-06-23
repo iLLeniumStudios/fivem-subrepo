@@ -3,6 +3,8 @@
 
 A bash script that builds up a subrepo based private Git repo and private forks from a txAdmin Recipe
 
+Video Walkthrough: https://www.youtube.com/watch?v=XPO605hcDF0
+
 ## Supported Operating Systems
 
 - Linux (Ubuntu / CentOS / Fedora / Arch)

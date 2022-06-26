@@ -105,28 +105,13 @@ function all_repos_in_recipe() {
                     cd $folder
                     git fetch upstream
                     git pull origin $ref --no-edit
-                    git checkout -b origin/$ref origin/$ref
-                    GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash upstream/$ref
-
-                    while true
-                    do
-                        if git diff-index --quiet HEAD --; then
-                            git rebase --skip
-                            retVal=$?
-                        else
-                            git rebase --continue
-                            retVal=$?
-                        fi
-                        if [ $retVal -ne 1 ]; then
-                            break
-                        fi
-                    done
-
-                    git pull origin $ref --no-edit
-                    git push --force-with-lease origin origin/$ref:$ref
-                    git checkout $ref
-                    git pull --no-edit
-                    git branch -d origin/$ref
+                    #git checkout $ref
+                    git merge upstream/$ref --ff-only
+                    if [ $? -ne 0 ]; then
+                        echo "There are merge conflicts in ${folder}. Please resolve them and run the script again"
+                        exit 1
+                    fi
+                    git push origin $ref
 
                     cd ../$REPO_NAME
                     git subrepo pull $dest

@@ -106,7 +106,7 @@ function all_repos_in_recipe() {
                     git fetch upstream
                     git pull origin $ref --no-edit
                     #git checkout $ref
-                    git merge upstream/$ref --ff-only
+                    git merge upstream/$ref --no-edit
                     if [ $? -ne 0 ]; then
                         echo "There are merge conflicts in ${folder}. Please resolve them and run the script again"
                         exit 1

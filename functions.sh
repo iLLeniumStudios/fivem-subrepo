@@ -137,6 +137,10 @@ function all_repos_in_recipe() {
             if [ "$script_action" = "create" ]; then
                 src=$(echo $json | jq -r '.src')
                 dest=$(echo $json | jq -r '.dest')
+                override=$(echo $json | jq -r '.override')
+                if [ "$override" = "true" ]; then
+                    rm -rf $dest
+                fi
                 mkdir -p $dest
                 unzip $src -d $dest
             fi
